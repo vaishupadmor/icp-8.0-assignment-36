@@ -17,15 +17,6 @@
        
        
        
-       //const students =["a","b","c","d","e","f","g"]
-       //localStorage.setItem("students",JSON.stringify(students))
-       //localStorage.getItem("students")
-       //JSON.parse(localStorage.getItem("students"))
-      
-      //const studentsfromdb = JSON.parse(localStorage.getItem("students"))
-      //studentsfromdb
-
-      //studentsfromdb[0]
       const nameElement =document.getElementById('name');
       const greetingElement = document.getElementById('greeting'); 
       const btnElement = document.getElementById('save');
@@ -41,8 +32,19 @@
     nameElement.style.display = "none";
  }
     
-   
- } 
+ const username  =document.getElementById('name');
+    if(username){
+      greetingElement.innerText=`hello ${username}`;
+      btnElement.style.display="none";
+      nameElement.style.display = "none";
+    }
+      
+
+    function logout(){
+        localStorage.removeItem('name');
+        window.location.reload();
+    }
+ 
       </script>
     
 </body>
