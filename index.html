@@ -4,48 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+.input{
+  border: 3px solid blue;
+  height: 25px;
+  color:whitesmoke;
+  margin: 20px auto;
+  width: 300px;
+  display: block;
+  margin-bottom: 30px;
+  border-radius: 20px;
+
+}
+
+.btn{
+  border: 2px solid black;
+  border-radius: 20px;
+  width: 65px;
+  margin-bottom: 30px;
+  margin: 20px;
+  
+  
+  
+  
+}
+
+.greet{
+  color: green;
+  font-weight: 700px;
+  font-size: 30px;
+  text-align: center;
+}
+.btn-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+    </style>
 </head>
 <body>
 
-     <input type="text" id="name" placeholder="ENTER Your name"/>
-      <button  id="save" onclick="save()">Save</button>
-      <button  id="logout" onclick="logout()">Save</button>
+      <input class="input"       type="text" id="name" placeholder="ENTER Your name"/>
+     <div class="btn-container">
+
+     
+      <button class="btn" id="save" onclick="save()">Save</button>
+      <button class="btn" id="logout" onclick="logout()">logout</button>
+    </div>
+      <p  class="greet"  id="greeting">HELLO USER </p>
     
-      <p id="greeting">HELLO USER </p>
     
-    <script>
+      <script>
        
        
        
-      const nameElement =document.getElementById('name');
-      const greetingElement = document.getElementById('greeting'); 
-      const btnElement = document.getElementById('save');
-      function save()
- {
-    if(!nameElement.value){
-        alert('Please enter your name');
-        return;
-    }
-    localStorage.setItem('name',nameElement.value);
-    greetingElement.innerText = `Hello ${nameElement.value}`;
-    btnElement.style.display="none";
-    nameElement.style.display = "none";
- }
-    
- const username  =document.getElementById('name');
-    if(username){
-      greetingElement.innerText=`hello ${username}`;
+        
+        function save()
+   {
+    const nameElement =document.getElementById('name');
+        
+        const greetingElement = document.getElementById('greeting'); 
+        const btnElement = document.getElementById('save');
+
+      if(!nameElement.value){
+          alert('Please enter your name');
+          return;
+      }
+      localStorage.setItem('name',nameElement.value);
+      greetingElement.innerText = `Hello ${nameElement.value}`;
+      
       btnElement.style.display="none";
       nameElement.style.display = "none";
-    }
-      
 
-    function logout(){
-        localStorage.removeItem('name');
-        window.location.reload();
-    }
- 
-      </script>
-    
+   }
+   
+   const username  =document.getElementById('name');
+      if(username){
+        greetingElement.innerText=`hello ${username}`;
+        btnElement.style.display="none";
+      nameElement.style.display = "none";
+
+      }
+        
+   
+      function logout(){
+          localStorage.removeItem('name');
+          window.location.reload();
+      }
+   
+        </script>
 </body>
 </html>
