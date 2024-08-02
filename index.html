@@ -31,7 +31,15 @@
       const btnElement = document.getElementById('save');
       function save()
  {
-    
+    if(!nameElement.value){
+        alert('Please enter your name');
+        return;
+    }
+    localStorage.setItem('name',nameElement.value);
+    greetingElement.innerText = `Hello ${nameElement.value}`;
+    btnElement.style.display="none";
+    nameElement.style.display = "none";
+ }
     
    
  } 
